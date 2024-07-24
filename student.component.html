@@ -1,0 +1,35 @@
+<nav class="navbar navbar-light bg-dark">
+    <div class="container-fluid">
+        <h2 style="color:white">Student Registration Data</h2>
+        <div class="d-flex">
+            <button class="btn btn-dark" routerLink="/addstudent">Add Student</button>
+        </div>
+    </div>
+</nav>
+<div class="container-fluid">
+    <table class="table table-bordered table-striped">
+        <thead>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Mobile</th>
+            <th>RegisterNo</th>
+            <th>Fees</th>
+            <th>Actions</th>
+        </thead>
+        <tbody>
+            <tr *ngFor="let item of studentData">
+                <td>{{item.id}}</td>
+                <td>{{item.name}}</td>
+                <td>{{item.email}}</td>
+                <td>{{item.mobile}}</td>
+                <td>{{item.registerno}}</td>
+                <td>{{item.fees}}</td>
+                <td>
+                    <button class="btn btn-primary" routerLink="/edit/{{item.id}}">Edit</button>
+                    <button class="btn btn-danger" (click)="deleteStudent(item.id)">Delete</button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
